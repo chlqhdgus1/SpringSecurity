@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration			//자동으로 스캔되어야 하니 configuration이라고 작성
 @EnableWebSecurity		//어노테이션기반의 시큐리티라는걸 나타냄
@@ -25,7 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//로그인 페이지를 사용자가 만들어 지정해보자
 		http.formLogin().loginPage("/login").permitAll();
 		
-		
+		//우리가 사용자 정의 loginPage를 지정하면 로그아웃 제공하지 않아요.
+		//로그아웃을 위한 서비스명도 지정해요.
+		http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		.invalidateHttpSession(true);
 		
 		
 		http.httpBasic();	
