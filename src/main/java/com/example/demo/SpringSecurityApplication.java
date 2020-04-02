@@ -25,12 +25,10 @@ public class SpringSecurityApplication {
 	
 	
 	public static void main(String[] args) {
-	MemberManager.insertMember(new MemberVo("tiger", PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("tiger"),"홍길동","USER"));			//매니저에 만든 메소드를 호출해서 사용자 생성 
-	MemberManager.insertMember(new MemberVo("master",PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("1234"),"곽동길","ADMIN"));			//매니저에 만든 메소드를 호출해서 사용자 생성 
+//	MemberManager.insertMember(new MemberVo("tiger", PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("tiger"),"홍길동","USER"));			//매니저에 만든 메소드를 호출해서 사용자 생성 
+//	MemberManager.insertMember(new MemberVo("master",PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("1234"),"곽동길","ADMIN"));			//매니저에 만든 메소드를 호출해서 사용자 생성 
 		//실험을 위해 객체를 생성했으니 재실행 되면 안되기떄문에 주석으로 막음
-		
-		
+			
 		SpringApplication.run(SpringSecurityApplication.class, args);
 	}
-
 }

@@ -19,7 +19,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.mvcMatchers("/admin/**").hasRole("ADMIN")	//2.이러한 요청은 ADMIN권한(role)이 있어야 사용가능해요
 		.anyRequest().authenticated();				//3.그외에는 인증(로그인)만 하면돼
 		
-		http.formLogin();	//스프링 시큐리티가 제공하는 로그인 폼을 사용하겠습니다.					
-		http.httpBasic();	//http기본 프로토콜을 사용하겠습니다.
+		//http.formLogin();	
+		//스프링 시큐리티가 제공하는 로그인 폼을 사용하겠습니다.		
+		
+		//로그인 페이지를 사용자가 만들어 지정해보자
+		http.formLogin().loginPage("/login").permitAll();
+		
+		
+		
+		
+		http.httpBasic();	
+		//http기본 프로토콜을 사용하겠습니다.
 	}
 }
